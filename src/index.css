@@ -11,23 +11,30 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* 基础字体大小 - 使用 62.5% 使 1rem = 10px */
+  font-size: 62.5%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #333;
+  background-color: #ffffff;
 }
 
 h1 {
@@ -64,5 +71,30 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* 响应式字体大小 */
+@media screen and (max-width: 1200px) {
+  :root {
+    font-size: 60%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  :root {
+    font-size: 58%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 55%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    font-size: 50%;
   }
 }
