@@ -1,0 +1,133 @@
+.creator-card {
+  position: relative;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s ease;
+}
+
+.creator-card:hover {
+  transform: translateY(-2px);
+}
+
+.contact-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #c8b3f4;
+  border-radius: 50%;
+  border:2px solid #000;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  z-index: 10;
+}
+
+.contact-button:hover {
+  background-color: #b69ef0;
+}
+.plus-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 12px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 200px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  color: #666;
+}
+
+.contact-item:hover {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.creator-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.creator-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.creator-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.creator-username {
+  font-weight: 500;
+}
+
+.creator-stats {
+  display: flex;
+  gap: 12px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.creator-section {
+  margin-top: 16px;
+}
+
+.creator-section h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.topics-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.topic-tag {
+  background-color: #e9e1fc;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.demographics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.demographic-item {
+  font-size: 0.9rem;
+  color: #666;
+}
