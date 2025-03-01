@@ -5,25 +5,24 @@
   justify-content: center;
   min-height: 100vh;
   background-color: white;
-  text-align: center; 
   width: 100%;
   padding: 2rem;
 }
 
 .logo-container {
-  margin-bottom: 3rem;
+  margin-bottom: 3rem !important;
   max-width: 100%;
   padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 6rem;
-  font-style: italic;
-  font-weight: 500;
-  color: #333;
-  line-height: 1.2;
-  margin-bottom: 2rem;
+  width: 60rem !important;
+  min-width: 60rem !important;
+  height: auto !important;
+  object-fit: contain !important;
 }
 
 .find-creators-btn {
@@ -35,7 +34,7 @@
   font-size: 1.8rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  max-width: 30rem;
+  max-width: 18rem;
   width: 100%;
 }
 
@@ -47,17 +46,32 @@
 /* 响应式布局调整 */
 @media screen and (max-width: 1200px) {
   .logo {
-    font-size: 5rem;
+    width: 50rem !important;
+    min-width: 50rem !important;
+  }
+  
+  .logo-container {
+    margin-bottom: 2.8rem !important;
+  }
+
+  .find-creators-btn {
+    max-width: 16rem;
   }
 }
 
 @media screen and (max-width: 992px) {
   .logo {
-    font-size: 4.5rem;
+    width: 40rem !important;
+    min-width: 40rem !important;
+  }
+  
+  .logo-container {
+    margin-bottom: 2.6rem !important;
   }
   
   .find-creators-btn {
     font-size: 1.6rem;
+    max-width: 14rem;
   }
 }
 
@@ -67,30 +81,34 @@
   }
   
   .logo {
-    font-size: 4rem;
+    width: 30rem !important;
+    min-width: 30rem !important;
   }
   
   .logo-container {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.4rem !important;
   }
   
   .find-creators-btn {
     padding: 1rem 2rem;
+    max-width: 13rem;
   }
 }
 
 @media screen and (max-width: 480px) {
   .logo {
-    font-size: 3.2rem;
+    width: 20rem !important;
+    min-width: 20rem !important;
+  }
+  
+  .logo-container {
+    margin-bottom: 2rem !important;
   }
   
   .find-creators-btn {
     font-size: 1.4rem;
     padding: 1rem 1.8rem;
-  }
-  
-  .logo-container {
-    margin-bottom: 2rem;
+    max-width: 12rem;
   }
 }
 
@@ -101,13 +119,18 @@
   }
   
   .logo {
-    font-size: 7.2rem;
+    width: 70rem !important;
+    min-width: 70rem !important;
+  }
+  
+  .logo-container {
+    margin-bottom: 3.5rem !important;
   }
   
   .find-creators-btn {
     font-size: 2rem;
     padding: 1.5rem 3rem;
-    max-width: 36rem;
+    max-width: 22rem;
   }
 }
 
@@ -117,6 +140,15 @@
   }
   
   .logo {
-    font-size: 8rem;
+    width: 80rem !important;
+    min-width: 80rem !important;
+  }
+  
+  .logo-container {
+    margin-bottom: 4rem !important;
+  }
+
+  .find-creators-btn {
+    max-width: 24rem;
   }
 }
