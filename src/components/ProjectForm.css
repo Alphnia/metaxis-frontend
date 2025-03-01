@@ -1,7 +1,7 @@
 :root {
   --spacing-unit: 1rem;
   --border-radius: 0.5rem;
-  --logo-height: 12rem;
+  --logo-height: 15rem;
   --base-font-size: 1.25rem;
   --title-font-size: 5rem;
 }
@@ -14,31 +14,34 @@
 .sidebar {
   width: 15rem;
   background-color: #f5f5f5;
-  padding: var(--spacing-unit);
   display: flex;
   flex-direction: column;
+  padding: 0;
 }
 
-.logo-container {
-  margin-bottom: var(--spacing-unit);
+.sidebar .logo-container {
+  width: 100%;
+  padding: 0.25rem;
   display: flex;
   align-items: center;
 }
 
-.project-logo {
+.sidebar .project-logo {
   height: var(--logo-height);
-  width: auto;
+  width: 100%;
   object-fit: contain;
+  display: block;
+  margin: -1rem 0;
 }
 
 .new-project-btn {
+  margin: 0 1rem 1rem;
   background-color: #b388ff;
   color: white;
   border: none;
   padding: 0.75rem;
   border-radius: var(--border-radius);
   cursor: pointer;
-  margin-bottom: var(--spacing-unit);
   transition: background-color 0.3s;
 }
 
@@ -47,6 +50,7 @@
 }
 
 .projects-list {
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
@@ -67,7 +71,11 @@
 }
 
 .project-icon {
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #666;
 }
 
 .main-content {
@@ -145,22 +153,39 @@
   width: 100%;
 }
 
-.form-group:first-of-type .form-input {
-  min-height: 4rem;
-  font-size: calc(var(--base-font-size) * 1.5);
+.description-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #333333;
+  border-radius: var(--border-radius);
+  font-size: calc(var(--base-font-size) * 1.2);
+  min-height: 7rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  resize: none;
+  overflow: hidden;
+  height: auto;
+  line-height: 1.5;
 }
 
-.form-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #666;
-  font-size: var(--base-font-size);
+.description-input:focus {
+  outline: none;
+  border-color: #b388ff;
+  box-shadow: 0 0 0 0.125rem rgba(179, 136, 255, 0.1);
+}
+
+.description-input.error {
+  border-color: #ff4d4f;
+}
+
+.description-input.error:focus {
+  border-color: #ff4d4f;
+  box-shadow: 0 0 0 0.125rem rgba(255, 77, 79, 0.1);
 }
 
 .form-input {
   width: 100%;
   padding: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #333333;
   border-radius: var(--border-radius);
   font-size: var(--base-font-size);
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -205,27 +230,39 @@
 
 .link-icon {
   position: absolute;
-  left: 0.75rem;
+  left: 1.2rem;
   top: 50%;
   transform: translateY(-50%);
+  font-size: 1.5rem;
+  color: #666;
+  display: flex;
+  align-items: center;
 }
 
 .link-input-container .form-input {
-  padding-left: 2.25rem;
+  padding-left: 3.5rem;
 }
 
 .upload-btn {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  border: 1px solid #ddd;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #333333;
   border-radius: var(--border-radius);
   background-color: white;
   cursor: pointer;
   transition: background-color 0.2s;
   width: 100%;
   font-size: var(--base-font-size);
+}
+
+.upload-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  color: #666;
 }
 
 .upload-btn:hover {
@@ -252,7 +289,7 @@
 @media screen and (min-width: 2560px) {
   :root {
     --spacing-unit: 1.25rem;
-    --logo-height: 16rem;
+    --logo-height: 20rem;
     --base-font-size: 1.75rem;
     --title-font-size: 7rem;
   }
@@ -281,7 +318,7 @@
 @media screen and (min-width: 3840px) {
   :root {
     --spacing-unit: 1.5rem;
-    --logo-height: 20rem;
+    --logo-height: 25rem;
     --base-font-size: 2.25rem;
     --title-font-size: 9rem;
   }
@@ -312,7 +349,7 @@
   :root {
     --base-font-size: 1.125rem;
     --title-font-size: 4rem;
-    --logo-height: 11rem;
+    --logo-height: 13rem;
   }
 
   .form-container {
@@ -322,12 +359,16 @@
   .animated-word-container {
     width: 13.125rem;
   }
+
+  .description-input {
+    min-height: 6rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
   :root {
     --spacing-unit: 0.875rem;
-    --logo-height: 10rem;
+    --logo-height: 12rem;
     --base-font-size: 1.125rem;
     --title-font-size: 3rem;
   }
@@ -356,6 +397,10 @@
   .title-second-line {
     gap: 1.5rem;
   }
+
+  .description-input {
+    min-height: 5rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -376,13 +421,13 @@
     width: 100%;
   }
 
-  .form-group:first-of-type .form-input {
-    min-height: 2.8125rem;
+  .description-input {
+    min-height: 4rem;
   }
 
   :root {
     --base-font-size: 1rem;
     --title-font-size: 2rem;
-    --logo-height: 9rem;
+    --logo-height: 10rem;
   }
 } 

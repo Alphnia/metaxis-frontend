@@ -9,8 +9,8 @@
   padding: 2rem;
 }
 
-.logo-container {
-  margin-bottom: 3rem !important;
+.container > .logo-container {
+  margin-bottom: 3rem;
   max-width: 100%;
   padding: 0 2rem;
   display: flex;
@@ -18,11 +18,11 @@
   align-items: center;
 }
 
-.logo {
-  width: 60rem !important;
-  min-width: 60rem !important;
-  height: auto !important;
-  object-fit: contain !important;
+.container > .logo-container > .logo {
+  width: 60rem;
+  min-width: 60rem;
+  height: auto;
+  object-fit: contain;
 }
 
 .find-creators-btn {
@@ -45,13 +45,13 @@
 
 /* 响应式布局调整 */
 @media screen and (max-width: 1200px) {
-  .logo {
-    width: 50rem !important;
-    min-width: 50rem !important;
+  .container > .logo-container > .logo {
+    width: 50rem;
+    min-width: 50rem;
   }
   
-  .logo-container {
-    margin-bottom: 2.8rem !important;
+  .container > .logo-container {
+    margin-bottom: 2.8rem;
   }
 
   .find-creators-btn {
@@ -60,13 +60,13 @@
 }
 
 @media screen and (max-width: 992px) {
-  .logo {
-    width: 40rem !important;
-    min-width: 40rem !important;
+  .container > .logo-container > .logo {
+    width: 40rem;
+    min-width: 40rem;
   }
   
-  .logo-container {
-    margin-bottom: 2.6rem !important;
+  .container > .logo-container {
+    margin-bottom: 2.6rem;
   }
   
   .find-creators-btn {
@@ -80,13 +80,13 @@
     padding: 1.5rem;
   }
   
-  .logo {
-    width: 30rem !important;
-    min-width: 30rem !important;
+  .container > .logo-container > .logo {
+    width: 30rem;
+    min-width: 30rem;
   }
   
-  .logo-container {
-    margin-bottom: 2.4rem !important;
+  .container > .logo-container {
+    margin-bottom: 2.4rem;
   }
   
   .find-creators-btn {
@@ -96,13 +96,13 @@
 }
 
 @media screen and (max-width: 480px) {
-  .logo {
-    width: 20rem !important;
-    min-width: 20rem !important;
+  .container > .logo-container > .logo {
+    width: 20rem;
+    min-width: 20rem;
   }
   
-  .logo-container {
-    margin-bottom: 2rem !important;
+  .container > .logo-container {
+    margin-bottom: 2rem;
   }
   
   .find-creators-btn {
@@ -118,13 +118,13 @@
     margin: 0 auto;
   }
   
-  .logo {
-    width: 70rem !important;
-    min-width: 70rem !important;
+  .container > .logo-container > .logo {
+    width: 70rem;
+    min-width: 70rem;
   }
   
-  .logo-container {
-    margin-bottom: 3.5rem !important;
+  .container > .logo-container {
+    margin-bottom: 3.5rem;
   }
   
   .find-creators-btn {
@@ -139,13 +139,13 @@
     max-width: 240rem;
   }
   
-  .logo {
-    width: 80rem !important;
-    min-width: 80rem !important;
+  .container > .logo-container > .logo {
+    width: 80rem;
+    min-width: 80rem;
   }
   
-  .logo-container {
-    margin-bottom: 4rem !important;
+  .container > .logo-container {
+    margin-bottom: 4rem;
   }
 
   .find-creators-btn {

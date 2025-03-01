@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FiFolder, FiLink, FiUpload } from 'react-icons/fi';
 import './ProjectForm.css';
 import logo from '../assets/logo-short.svg';
 
@@ -37,6 +38,11 @@ function ProjectForm() {
     if (field === 'description' && value.trim()) {
       setError('');
     }
+  };
+
+  const handleTextareaResize = (e) => {
+    e.target.style.height = 'auto';
+    e.target.style.height = e.target.scrollHeight + 'px';
   };
 
   const handleFileChange = (event) => {
@@ -89,19 +95,19 @@ function ProjectForm() {
         <button className="new-project-btn">New Project</button>
         <div className="projects-list">
           <div className="project-item">
-            <span className="project-icon">📁</span>
+            <span className="project-icon"><FiFolder /></span>
             Projects
           </div>
           <div className="project-item">
-            <span className="project-icon">📁</span>
+            <span className="project-icon"><FiFolder /></span>
             Projects
           </div>
           <div className="project-item">
-            <span className="project-icon">📁</span>
+            <span className="project-icon"><FiFolder /></span>
             Projects
           </div>
           <div className="project-item">
-            <span className="project-icon">📁</span>
+            <span className="project-icon"><FiFolder /></span>
             Projects
           </div>
         </div>
@@ -128,12 +134,15 @@ function ProjectForm() {
           </div>
           
           <div className="form-group">
-            <input
-              type="text"
-              className={`form-input ${error ? 'error' : ''}`}
+            <textarea
+              className={`description-input ${error ? 'error' : ''}`}
               placeholder="What do you want to promote?"
               value={formData.description}
-              onChange={(e) => handleInputChange('description', e.target.value)}
+              onChange={(e) => {
+                handleInputChange('description', e.target.value);
+                handleTextareaResize(e);
+              }}
+              onInput={handleTextareaResize}
             />
             {error && <div className="error-message">{error}</div>}
           </div>
@@ -141,7 +150,7 @@ function ProjectForm() {
           <div className="form-group">
             <label className="form-label">Website or Product Link (optional)</label>
             <div className="link-input-container">
-              <span className="link-icon">🔗</span>
+              <span className="link-icon"><FiLink /></span>
               <input
                 type="text"
                 className="form-input"
@@ -153,7 +162,7 @@ function ProjectForm() {
           </div>
           
           <div className="form-group">
-            <label className="form-label">Upload File</label>
+            <label className="form-label">Upload File (optional)</label>
             <input
               type="file"
               id="file-input"
@@ -164,7 +173,7 @@ function ProjectForm() {
               className="upload-btn"
               onClick={() => document.getElementById('file-input').click()}
             >
-              <span className="upload-icon">⬆️</span>
+              <span className="upload-icon"><FiUpload /></span>
               {formData.file ? formData.file.name : 'Choose File'}
             </button>
           </div>
