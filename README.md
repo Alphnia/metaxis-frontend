@@ -1,4 +1,5 @@
 # Instruction
+To run this project: 
 
 ```sh
 npm install
