@@ -69,20 +69,37 @@ function ProjectForm() {
         submitData.append('file', formData.file);
       }
 
-      const response = await fetch('/api/analyze', {
+      // 打印要发送的数据
+      console.log('Sending data:', {
+        description: formData.description,
+        link: formData.link,
+        file: formData.file ? formData.file.name : null
+      });
+
+      const response = await fetch('http://127.0.0.1:5000/api/analyze', {
         method: 'POST',
+        // 使用 FormData 时不要手动设置 Content-Type，让浏览器自动设置
         body: submitData
       });
-      navigate('/analyze');
-      if (response.ok) {
-        const result = await response.json();
-        // 导航到分析结果页面，并传递数据
-        // navigate('/results', { state: { analysisData: result } });
-      } else {
-        console.error('提交失败');
+
+      // 打印响应状态
+      console.log('Response status:', response.status);
+
+      if (!response.ok) {
+        // 尝试读取错误信息
+        const errorText = await response.text();
+        console.error('Server error response:', errorText);
+        throw new Error(`Server responded with status ${response.status}: ${errorText}`);
       }
+
+      const result = await response.json();
+      console.log('Server response data:', result);
+
+      // 导航到分析结果页面，并传递数据
+      navigate('/analyze', { state: { analysisData: result['result'] } });
     } catch (error) {
-      console.error('提交错误:', error);
+      console.error('Submit error:', error);
+      setError('Submit failed, please try again later');
     }
   };
 

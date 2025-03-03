@@ -23,10 +23,49 @@ function AnalysisResults() {
         timeline: '',
         budget: '',
         keyMessage: 'College Student, Software Engineer',
-        additionalInfo: 'Computer Science, Full-stack Development'
+        additionalInfo: {
+          "freeTrial": "1 month free trial available after contract signing",
+          "videoAssets": {
+              "finishedVideoAd": "30 seconds",
+              "additionalHooks": [
+                  {
+                      "duration": "5-7 seconds",
+                      "hook": "This app just turned hours of video editing into seconds \u2013 don\u2019t believe me?"
+                  },
+                  {
+                      "duration": "5-7 seconds",
+                      "hook": "Imagine editing a video without actually editing."
+                  }
+              ],
+              "rawFiles": "Folder with raw files and B-roll will be provided if possible"
+          },
+          "videoSpecifications": {
+              "length": "45 seconds",
+              "language": "English",
+              "visualStyle": "Energetic, modern, relatable, visually polished"
+          }
+      }
       }
     }
   )
+
+  // 格式化 JSON 对象为带有 bullet points 的文本
+  const formatJsonToText = (obj, level = 0) => {
+    if (typeof obj !== 'object' || obj === null) {
+      return obj?.toString() || ''
+    }
+
+    return Object.entries(obj).map(([key, value]) => {
+      const indent = '  '.repeat(level)
+      const bullet = level === 0 ? '• ' : '- '
+      
+      if (typeof value === 'object' && value !== null) {
+        return `${indent}${bullet}${key}:\n${formatJsonToText(value, level + 1)}`
+      }
+      
+      return `${indent}${bullet}${key}: ${value}`
+    }).join('\n')
+  }
 
   const handleChange = (field, value) => {
     if (field.includes('.')) {
@@ -50,6 +89,9 @@ function AnalysisResults() {
 
   const handleMatchCreators = async () => {
     try {
+      // 打印要发送的数据
+      console.log('Sending data to server:', analysisData)
+
       const response = await fetch('/api/match-creators', {
         method: 'POST',
         headers: {
@@ -57,16 +99,24 @@ function AnalysisResults() {
         },
         body: JSON.stringify(analysisData),
       })
-      navigate('/influencer-selection')//, { state: { creators: result } })
-      if (response.ok) {
-        const result = await response.json()
-        // Navigate to the influencer selection page
-        //navigate('/influencer-selection', { state: { creators: result } })
-      } else {
-        console.error('Matching failed')
+
+      // 打印响应状态
+      console.log('Server response status:', response.status)
+
+      if (!response.ok) {
+        // 尝试读取错误信息
+        const errorText = await response.text()
+        console.error('Server error response:', errorText)
+        throw new Error(`Server responded with status ${response.status}: ${errorText}`)
       }
+
+      const result = await response.json()
+      console.log('Server response data:', result)
+      
+      navigate('/influencer-selection')
     } catch (error) {
-      console.error('Error matching creators:', error)
+      console.error('Error in handleMatchCreators:', error)
+      // 这里可以添加错误提示UI
     }
   }
 
@@ -148,9 +198,12 @@ function AnalysisResults() {
                 <span className="campaign-label">Additional Information</span>
                 <textarea
                   className="campaign-value editable campaign-textarea"
-                  value={analysisData.campaign.additionalInfo}
+                  value={typeof analysisData.campaign.additionalInfo === 'object' 
+                    ? formatJsonToText(analysisData.campaign.additionalInfo)
+                    : analysisData.campaign.additionalInfo}
                   onChange={(e) => handleChange('campaign.additionalInfo', e.target.value)}
                   placeholder="Enter additional information"
+                  readOnly={typeof analysisData.campaign.additionalInfo === 'object'}
                 />
               </div>
             </div>

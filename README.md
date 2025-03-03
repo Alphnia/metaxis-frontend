@@ -1,5 +1,17 @@
 # Instruction
-To run this project: 
+1. Make sure you have python3 installed
+2. Install Packages:
+```sh
+pip install Flask Flask-CORS PyMuPDF openai chardet python-docx
+```
+
+3. To run the backend server:
+```sh
+python server.py
+```
+If OpenAI API encounters an error during execution, follow the terminal prompts and run the ``` openai migrate ``` command.
+
+4. To run the frontend project: 
 
 ```sh
 npm install
